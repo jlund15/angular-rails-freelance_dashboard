@@ -9,13 +9,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@angular/core");
 const platform_browser_1 = require("@angular/platform-browser");
 const forms_1 = require("@angular/forms");
+const http_1 = require("@angular/http");
 const ng_bootstrap_1 = require("@ng-bootstrap/ng-bootstrap");
 const app_component_1 = require("./app.component");
 const homepage_component_1 = require("./homepage/homepage.component");
 const documents_component_1 = require("./documents/documents.component");
+const document_service_1 = require("./documents/document.service");
 const proposal_list_component_1 = require("./proposal/proposal-list.component");
 const proposal_new_component_1 = require("./proposal/proposal-new.component");
 const proposal_show_component_1 = require("./proposal/proposal-show.component");
+const proposal_service_1 = require("./proposal/proposal.service");
 const app_routing_module_1 = require("./app-routing.module");
 let AppModule = class AppModule {
 };
@@ -25,7 +28,8 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             app_routing_module_1.AppRoutingModule,
             forms_1.FormsModule,
-            ng_bootstrap_1.NgbModule.forRoot()
+            ng_bootstrap_1.NgbModule.forRoot(),
+            http_1.HttpModule
         ],
         declarations: [
             app_component_1.AppComponent,
@@ -34,6 +38,10 @@ AppModule = __decorate([
             proposal_list_component_1.ProposalListComponent,
             proposal_new_component_1.ProposalNewComponent,
             proposal_show_component_1.ProposalShowComponent
+        ],
+        providers: [
+            document_service_1.DocumentService,
+            proposal_service_1.ProposalService
         ],
         bootstrap: [
             app_component_1.AppComponent
